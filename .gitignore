@@ -134,3 +134,8 @@ credentials
 
 # Local Netlify folder
 .netlify
+
+# Netlify bundled deps (Windows binaries, not for Linux)
+netlify/functions/*.pyd
+netlify/functions/*.dist-info
+netlify/functions/bin/
