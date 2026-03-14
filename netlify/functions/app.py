@@ -6,8 +6,10 @@ Uses serverless-wsgi to wrap the Flask WSGI app as a Lambda-compatible handler.
 import sys
 import os
 
-# Add project root to path so imports work
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+# Add bundled dependencies and project root to path
+base = os.path.dirname(__file__)
+sys.path.insert(0, base)                        # netlify/functions (bundled deps land here)
+sys.path.insert(0, os.path.join(base, '..', '..'))  # project root
 
 import serverless_wsgi
 from app import app, init_db, seed_quotes
