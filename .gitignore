@@ -131,3 +131,6 @@ Thumbs.db
 # AWS credentials
 .aws/
 credentials
+
+# Local Netlify folder
+.netlify

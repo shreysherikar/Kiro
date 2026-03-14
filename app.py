@@ -24,7 +24,9 @@ app = Flask(__name__)
 # ============================================================================
 # Database Configuration
 # ============================================================================
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///inspireher.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL', 'sqlite:///inspireher.db'
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Secret key for flash messages
