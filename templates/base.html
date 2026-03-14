@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}InspireHer - Women in Tech Inspiration Hub{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <nav class="bg-purple-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div class="text-2xl font-bold mb-4 md:mb-0">
+                    <a href="/" class="hover:text-purple-200 transition">InspireHer</a>
+                </div>
+                <ul class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6">
+                    <li><a href="/" class="hover:text-purple-200 transition block py-1">Home</a></li>
+                    <li><a href="/gallery" class="hover:text-purple-200 transition block py-1">Gallery</a></li>
+                    <li><a href="/inspiration" class="hover:text-purple-200 transition block py-1">Inspiration</a></li>
+                    <li><a href="/submit" class="hover:text-purple-200 transition block py-1">Submit</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-auto py-6">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 InspireHer. Celebrating women in technology.</p>
+        </div>
+    </footer>
+</body>
+</html>

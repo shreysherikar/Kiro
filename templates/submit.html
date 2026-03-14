@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Submit Profile - InspireHer{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Submit a Profile</h1>
+    
+    <p class="text-gray-600 mb-8">
+        Share the story of an inspiring woman in tech. Help us celebrate their achievements and inspire others.
+    </p>
+    
+    {% if error %}
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6" role="alert">
+        <strong class="font-bold">Error:</strong>
+        <span class="block sm:inline">{{ error }}</span>
+    </div>
+    {% endif %}
+    
+    <form method="POST" action="/submit" enctype="multipart/form-data" class="bg-white shadow-md rounded-lg px-6 py-8 md:px-8">
+        <div class="mb-6">
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">
+                Name <span class="text-red-500">*</span>
+            </label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                value="{{ name or '' }}" 
+                required
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                placeholder="e.g., Grace Hopper"
+            >
+        </div>
+        
+        <div class="mb-6">
+            <label for="field" class="block text-gray-700 text-sm font-bold mb-2">
+                Field <span class="text-red-500">*</span>
+            </label>
+            <input 
+                type="text" 
+                id="field" 
+                name="field" 
+                value="{{ field or '' }}" 
+                required
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                placeholder="e.g., Computer Science, Software Engineering"
+            >
+        </div>
+        
+        <div class="mb-6">
+            <label for="achievement" class="block text-gray-700 text-sm font-bold mb-2">
+                Achievement <span class="text-red-500">*</span>
+            </label>
+            <textarea 
+                id="achievement" 
+                name="achievement" 
+                required
+                rows="4"
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-y"
+                placeholder="Describe their notable achievements and contributions..."
+            >{{ achievement or '' }}</textarea>
+        </div>
+        
+        <div class="mb-8">
+            <label for="image" class="block text-gray-700 text-sm font-bold mb-2">
+                Image (optional)
+            </label>
+            <input 
+                type="file" 
+                id="image" 
+                name="image" 
+                accept="image/*"
+                class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100 cursor-pointer"
+            >
+            <p class="text-gray-500 text-xs mt-2">Accepted formats: JPG, PNG, GIF</p>
+        </div>
+        
+        <div class="flex items-center justify-between">
+            <button 
+                type="submit"
+                class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition w-full md:w-auto"
+            >
+                Submit Profile
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
